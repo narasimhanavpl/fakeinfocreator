@@ -1,18 +1,17 @@
 from faker import Faker
+import streamlit as st
+
 fake = Faker('en_IN')
 
 
-
-age_min = input('Minimum age?')
-age_max = input('Maximum age?')
+age = st.slider('Minimum and Maximum age', age_min, age_max, (25,50))
 
 def create():
-    print('Name: ' + fake.name())
-    print('Address: ' + fake.address())
-    print('City of birth: ' + fake.city())
-    print('Date of Birth: ' + str(fake.date_of_birth(minimum_age = int(age_min), maximum_age = int(age_max))))
-    print('Occupation: ' + fake.job())
-
+    st.write('Name: ' + fake.name())
+    st.write('Address: ' + fake.address())
+    st.write('City of birth: ' + fake.city())
+    st.write('Date of Birth: ' + str(fake.date_of_birth(minimum_age = int(age_min), maximum_age = int(age_max))))
+    st.write('Occupation: ' + fake.job())
 
 create()
 
